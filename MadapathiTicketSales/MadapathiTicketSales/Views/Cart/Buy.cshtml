@@ -1,0 +1,49 @@
+﻿@*
+    Created by Madapathi Srinija
+    14 14 14 14 14 14 14 14 14
+*@
+@model BuyTickets
+<form asp-action="Confirmation" asp-controller="Cart" method="post">
+    <div asp-validation-summary="All"></div>
+    <table>
+        <tr>
+            <td class="text-dark">Event:</td>
+            <td><input asp-for="EventName" value="@Model.EventName" readonly />
+        </tr>
+        <tr>
+            <td class="text-dark">Ticket Price:</td>
+            <td><input asp-for="TicketPrice" value="@Model.TicketPrice" readonly />
+        </tr>
+        <tr>
+            <td class="text-dark">Name:</td>
+            <td><input asp-for="CustomerName" />
+        </tr>
+        <tr>
+            <td class="text-dark">Email:</td>
+            <td><input asp-for="Email"  />
+        </tr>
+        <tr>
+            <td class="text-dark">Number of Tickets:</td>
+            <td><input asp-for="NumberOfTickets" />
+        </tr>
+        <tr>
+            <td class="="text-dark">Check if Applicable</td>
+            <td>
+                <label asp-for="SeniorDiscount"></label>
+                <input asp-for="SeniorDiscount" />
+            </td>
+        </tr>
+        <tr>
+            <td class="text-dark">Select delivery option</td>
+            <td>
+                <label asp-for="DeliveryMode"></label>
+                <select asp-for="DeliveryMode" asp-items="@Model.Deliveryoptions"></select>
+            </td>
+
+        </tr>
+        <tr>
+            <td><input type="submit" value="Purchase Ticket" /></td>
+        </tr>
+        
+    </table>
+</form>
